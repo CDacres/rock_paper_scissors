@@ -1,7 +1,38 @@
 alert('Let\'s play rock, paper, scissors!');
 var option = parseFloat(prompt('Select your game option.\nSingle Play - Enter 1\nTwo Player - Enter 2'));
 if (option === 1) {
-	alert('You have selcected Single Player!');
+	alert('You have selcected Single Player!\n The computer is player 2.');
+	var player1 = choiceSelect(1);
+	var randomNum = Math.floor(Math.random() * 3);
+	if (randomNum === 0) {
+		var player2 = 'r';
+	} else if (randomNum === 1) {
+		var player2 = 's';
+	} else {
+		var player2 = 'p';
+	}
+	if (player1 === player2) {
+		
+		alert('It\'s a tie!');
+	} else if (player1 === 'r') {
+		if (player2 === 'p') {
+			p2Win();
+		} else {
+			p1Win();
+		}
+	} else if (player1 === 'p') {
+		if (player2 === 'r') {
+			p1Win();
+		} else {
+			p2Win();
+		}
+	} else {
+		if (player2 === 'r') {
+			p2Win();
+		} else {
+			p1Win();
+		}
+	} 
 
 } else if (option === 2) {
 	alert('You have selected Two Player!');
@@ -11,12 +42,23 @@ if (option === 1) {
 		alert('It\'s a tie!');
 	} else if (player1 === 'r') {
 		if (player2 === 'p') {
+			p2Win();
+		} else {
+			p1Win();
+		}
+	} else if (player1 === 'p') {
+		if (player2 === 'r') {
 			p1Win();
 		} else {
 			p2Win();
 		}
-	}
-
+	} else {
+		if (player2 === 'r') {
+			p2Win();
+		} else {
+			p1Win();
+		}
+	} 
 } else {
 	alert('Error. \n Please select a valid game option.')
 }
@@ -32,4 +74,8 @@ function p1Win () {
 
 function p2Win () {
 	alert('Player 2 wins!');
+}
+
+function pcOut () {
+	alert('Player 2 (the computer) selected ' + player2 + '.');
 }
