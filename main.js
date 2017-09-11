@@ -1,11 +1,31 @@
-alert('Let\'s play rock, paper, scissors!');
+alert('Let\'s play rock, paper, scissors! Best ');
 var option = parseFloat(prompt('Select your game option.\nSingle Play - Enter 1\nTwo Player - Enter 2'));
 var winsP1 = 0;
 var winsP2 = 0;
 if (option === 1) {
+	for (var i = 0; i < 3; i++) {
 	game1();
+	}
+	if (winsP1 > winsP2)
+	{
+		p1WinFinal();
+	} else if (winsP1 < winsP2) {
+		p2WinFinal();
+	} else {
+		tieFinal();
+	}
 } else if (option === 2) {
+	for (var i = 0; i < 3; i++) {
 	game2();
+	}
+	if (winsP1 > winsP2)
+	{
+		p1WinFinal();
+	} else if (winsP1 < winsP2){
+		p2WinFinal();
+	} else {
+		tieFinal();
+	}
 } else {
 	alert('Error. \n Please select a valid game option.\nPlease refresh the page and try again.')
 }
@@ -23,12 +43,24 @@ function p2Win() {
 	alert('Player 2 wins!');
 }
 
-function pcOut() {
-	alert('Player 2 (the computer) selected ' + player2 + '.');
+function tie() {
+	alert('It\'s a tie!');
 }
 
 function cheat() {
 	alert('Error! \nPlayers need to select a valid option.\nPlease refresh the page and try again.');
+}
+
+function p1WinFinal () {
+	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + 'wins. \nPlayer 1 wins!');
+}
+
+function p2WinFinal () {
+	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + 'wins. \nPlayer 2 wins!');
+}
+
+function tieFinal () {
+	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + 'wins. \nIt\s a tie!');
 }
 
 function game1 () {
@@ -44,7 +76,7 @@ function game1 () {
 	}
 	if (player1 === player2) {
 		pcOut();
-		alert('It\'s a tie!');
+		tie();
 	} else if (player1 === 'r') {
 		if (player2 === 'p') {
 			pcOut();
@@ -78,6 +110,10 @@ function game1 () {
 	} else {
 		cheat();
 	}
+
+	function pcOut() {
+	alert('Player 2 (the computer) selected ' + player2 + '.');
+	}
 }
 
 function game2 () {
@@ -85,7 +121,7 @@ function game2 () {
 	var player1 = choiceSelect(1);
 	var player2 = choiceSelect(2);
 	if (player1 === player2) {
-		alert('It\'s a tie!');
+		tie();
 	} else if (player1 === 'r') {
 		if (player2 === 'p') {
 			p2Win();
