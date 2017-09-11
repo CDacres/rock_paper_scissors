@@ -1,35 +1,41 @@
-alert('Let\'s play rock, paper, scissors! Best ');
-var option = parseFloat(prompt('Select your game option.\nSingle Play - Enter 1\nTwo Player - Enter 2'));
-var winsP1 = 0;
-var winsP2 = 0;
-if (option === 1) {
-	for (var i = 0; i < 3; i++) {
-	game1();
-	}
-	if (winsP1 > winsP2)
-	{
-		p1WinFinal();
-	} else if (winsP1 < winsP2) {
-		p2WinFinal();
+alert('Let\'s play rock, paper, scissors!\nBest 2 out of 3.');
+var playAgain = true;
+while (playAgain) {
+	var option = parseFloat(prompt('Select your game option.\nSingle Play - Enter 1\nTwo Player - Enter 2'));
+	var winsP1 = 0;
+	var winsP2 = 0;
+	if (option === 1) {
+		for (var i = 0; i < 3; i++) {
+		game1();
+		}
+		if (winsP1 > winsP2)
+		{
+			p1WinFinal();
+		} else if (winsP1 < winsP2) {
+			p2WinFinal();
+		} else {
+			tieFinal();
+		}
+	} else if (option === 2) {
+		for (var i = 0; i < 3; i++) {
+		game2();
+		}
+		if (winsP1 > winsP2)
+		{
+			p1WinFinal();
+		} else if (winsP1 < winsP2){
+			p2WinFinal();
+		} else {
+			tieFinal();
+		}
 	} else {
-		tieFinal();
+		alert('Error.\nPlease select a valid game option.\nPlease refresh the page and try again.')
 	}
-} else if (option === 2) {
-	for (var i = 0; i < 3; i++) {
-	game2();
+	var repeat = prompt('Play again?\n(Enter y/n)').toLowerCase();
+	if (repeat === 'n') {
+		playAgain = false;
 	}
-	if (winsP1 > winsP2)
-	{
-		p1WinFinal();
-	} else if (winsP1 < winsP2){
-		p2WinFinal();
-	} else {
-		tieFinal();
-	}
-} else {
-	alert('Error. \n Please select a valid game option.\nPlease refresh the page and try again.')
 }
-
 function choiceSelect(num) {
 	var player = prompt('Player ' + num +', please select your choice: \nRock -  Enter r\nPaper - Enter p\nScissors - Enter s').toLowerCase();
 	return player;
