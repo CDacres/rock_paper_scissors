@@ -65,7 +65,7 @@ function tie() {
 }
 
 function cheat() {
-	alert('Error! \nPlayers need to select a valid option.\nPlease refresh the page and try again.');
+	alert('Error! \nPlayers need to select a valid option.\nIt\'s a tie!');
 }
 
 function p1WinFinal () {
@@ -91,11 +91,13 @@ function game (player1,player2) {
 			p2Out();
 			p2Win();
 			winsP2 ++;
-		} else {
+		} else if (player2 === 's') {
 			p1Out();
 			p2Out();
 			p1Win();
 			winsP1 ++;
+		} else {
+			cheat();
 		}
 	} else if (player1 === 'p') {
 		if (player2 === 'r') {
@@ -103,11 +105,13 @@ function game (player1,player2) {
 			p2Out();
 			p1Win();
 			winsP1 ++;
-		} else {
+		} else if (player2 === 's') {
 			p1Out();
 			p2Out();
 			p2Win();
 			winsP2 ++;
+		} else {
+			cheat();
 		}
 	} else if (player1 === 's') {
 		if (player2 === 'r') {
@@ -115,11 +119,13 @@ function game (player1,player2) {
 			p2Out();
 			p2Win();
 			winsP2 ++;
-		} else {
+		} else if (player2 === 'p') {
 			p1Out();
 			p2Out();
 			p1Win();
 			winsP1 ++;
+		} else {
+			cheat();
 		}
 	} else {
 		cheat();
