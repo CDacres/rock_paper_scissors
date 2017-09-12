@@ -6,10 +6,19 @@ while (playAgain) {
 	var winsP2 = 0;
 	if (option === 1) {
 		for (var i = 0; i < 3; i++) {
-		game1();
+			alert('You have selcected Single Player!\n The computer is player 2.');
+			var player1 = choiceSelect(1);
+			var randomNum = Math.floor(Math.random() * 3);
+			if (randomNum === 0) {
+				var player2 = 'r';
+			} else if (randomNum === 1) {
+				var player2 = 's';
+			} else {
+				var player2 = 'p';
+			}
+			game(player1,player2);
 		}
-		if (winsP1 > winsP2)
-		{
+		if (winsP1 > winsP2) {
 			p1WinFinal();
 		} else if (winsP1 < winsP2) {
 			p2WinFinal();
@@ -18,10 +27,12 @@ while (playAgain) {
 		}
 	} else if (option === 2) {
 		for (var i = 0; i < 3; i++) {
-		game2();
+			alert('You have selected Two Player!');
+			var player1 = choiceSelect(1);
+			var player2 = choiceSelect(2);
+			game(player1,player2);
 		}
-		if (winsP1 > winsP2)
-		{
+		if (winsP1 > winsP2) {
 			p1WinFinal();
 		} else if (winsP1 < winsP2){
 			p2WinFinal();
@@ -69,47 +80,44 @@ function tieFinal () {
 	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + 'wins. \nIt\s a tie!');
 }
 
-function game1 () {
-	alert('You have selcected Single Player!\n The computer is player 2.');
-	var player1 = choiceSelect(1);
-	var randomNum = Math.floor(Math.random() * 3);
-	if (randomNum === 0) {
-		var player2 = 'r';
-	} else if (randomNum === 1) {
-		var player2 = 's';
-	} else {
-		var player2 = 'p';
-	}
+function game (player1,player2) {	
 	if (player1 === player2) {
-		pcOut();
+		p1Out();
+		p2Out();
 		tie();
 	} else if (player1 === 'r') {
 		if (player2 === 'p') {
-			pcOut();
+			p1Out();
+			p2Out();
 			p2Win();
 			winsP2 ++;
 		} else {
-			pcOut();
+			p1Out();
+			p2Out();
 			p1Win();
 			winsP1 ++;
 		}
 	} else if (player1 === 'p') {
 		if (player2 === 'r') {
-			pcOut();
+			p1Out();
+			p2Out();
 			p1Win();
 			winsP1 ++;
 		} else {
-			pcOut();
+			p1Out();
+			p2Out();
 			p2Win();
 			winsP2 ++;
 		}
 	} else if (player1 === 's') {
 		if (player2 === 'r') {
-			pcOut();
+			p1Out();
+			p2Out();
 			p2Win();
 			winsP2 ++;
 		} else {
-			pcOut();
+			p1Out();
+			p2Out();
 			p1Win();
 			winsP1 ++;
 		}
@@ -117,48 +125,11 @@ function game1 () {
 		cheat();
 	}
 
-	function pcOut() {
-	alert('Player 2 (the computer) selected ' + player2 + '.');
+	function p1Out() {
+	alert('Player 1 selected ' + player1 + '.');
 	}
-}
 
-function game2 () {
-	alert('You have selected Two Player!');
-	var player1 = choiceSelect(1);
-	var player2 = choiceSelect(2);
-	if (player1 === player2) {
-		tie();
-	} else if (player1 === 'r') {
-		if (player2 === 'p') {
-			p2Win();
-			winsP2 ++;
-		} else if (player2 === 's') {
-			p1Win();
-			winsP1 ++;
-		} else {
-			cheat();
-		}
-	} else if (player1 === 'p') {
-		if (player2 === 'r') {
-			p1Win();
-			winsP1 ++;
-		} else if (player2 === 's') {
-			p2Win();
-			winsP2 ++;
-		} else {
-			cheat();
-		}
-	} else if (player1 === 's') {
-		if (player2 === 'r') {
-			p2Win();
-			winsP2 ++;
-		} else if (player2 === 'p') {
-			p1Win();
-			winsP1 ++;
-		} else {
-			cheat();
-		}
-	} else {
-		cheat();
+	function p2Out() {
+	alert('Player 2 selected ' + player2 + '.');
 	}
 }
