@@ -6,7 +6,7 @@ while (playAgain) {
 	var winsP2 = 0;
 	if (option === 1) {
 		for (var i = 0; i < 3; i++) {
-			alert('You have selcected Single Player!\n The computer is player 2.');
+			alert('You have selcected Single Player!\nThe computer is player 2.');
 			var player1 = choiceSelect(1);
 			var randomNum = Math.floor(Math.random() * 3);
 			if (randomNum === 0) {
@@ -48,7 +48,7 @@ while (playAgain) {
 	}
 }
 function choiceSelect(num) {
-	var player = prompt('Player ' + num +', please select your choice: \nRock -  Enter r\nPaper - Enter p\nScissors - Enter s').toLowerCase();
+	var player = prompt('Player ' + num +', please select your choice:\nRock -  Enter r\nPaper - Enter p\nScissors - Enter s').toLowerCase();
 	return player;
 }
 
@@ -69,15 +69,15 @@ function cheat() {
 }
 
 function p1WinFinal () {
-	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + 'wins. \nPlayer 1 wins!');
+	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + ' wins. \nPlayer 1 wins!');
 }
 
 function p2WinFinal () {
-	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + 'wins. \nPlayer 2 wins!');
+	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + ' wins. \nPlayer 2 wins!');
 }
 
 function tieFinal () {
-	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + 'wins. \nIt\s a tie!');
+	alert('Final Score:\nPlayer 1: ' + winsP1 + ' wins. \nPlayer 2: ' + winsP2 + ' wins. \nIt\s a tie!');
 }
 
 function game (player1,player2) {	
