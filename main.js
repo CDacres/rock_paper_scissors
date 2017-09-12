@@ -65,7 +65,7 @@ function tie() {
 }
 
 function cheat() {
-	alert('Error!\nPlayers need to select a valid option.\nIt\'s a tie!');
+	alert('Error!\nPlayers need to select a valid option of r, p or s.\nAll are punished!\nIt\'s a tie!');
 }
 
 function p1WinFinal () {
